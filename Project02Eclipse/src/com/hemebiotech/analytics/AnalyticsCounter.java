@@ -7,17 +7,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
+
 		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine();
 
 		Map<String, Integer> symptomsMap = new HashMap<String, Integer>();
-		symptomsMap.put("test", 2);
+
 
 		while (line != null){
 			if(symptomsMap.containsKey(line)){
@@ -31,7 +28,7 @@ public class AnalyticsCounter {
 		}
 
 		System.out.println(symptomsMap);
-		
+
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
