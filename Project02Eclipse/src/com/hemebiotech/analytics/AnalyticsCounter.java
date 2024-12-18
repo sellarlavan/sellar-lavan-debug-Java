@@ -27,14 +27,13 @@ public class AnalyticsCounter {
 			line = reader.readLine();
 		}
 
-		System.out.println(symptomsMap);
 
-		
-		// next generate output
+
 		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+		for(Map.Entry<String, Integer> entry : symptomsMap.entrySet()){
+			writer.write(entry.getKey() + " : " + entry.getValue() + "\n");
+		}
+
 		writer.close();
 	}
 }
