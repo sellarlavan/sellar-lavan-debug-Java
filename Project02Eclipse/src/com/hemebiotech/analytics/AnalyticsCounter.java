@@ -66,16 +66,7 @@ public class AnalyticsCounter {
 	Map<String,Integer> listCount = counter.countSymptoms(list);
 	listCount = counter.sortSymptoms(listCount);
 	counter.writeSymptoms(listCount);
-
-	Map<String, Integer> test = new HashMap<>();
-	test.put("rose", 2);
-	test.put("argent", 3);
-	test.put("bleu", 1);
-	test.put("vert", 8);
-
-	List<Map.Entry<String,Integer>> sortList = new ArrayList<>(test.entrySet());
-	sortList.sort(Map.Entry.comparingByValue());
-	System.out.println(sortList);
+	
 
 
 	}
