@@ -56,18 +56,5 @@ public class AnalyticsCounter {
 		writer.writeSymptoms(symptoms);
 	}
 
-	public static void main(String args[]) throws Exception {
 
-	ISymptomReader reader1 = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-	ISymptomWriter writer1 = new WriteSymptomsDataToFile();
-	AnalyticsCounter counter = new AnalyticsCounter(reader1, writer1);
-
-	List<String> list = counter.getSymptoms();
-	Map<String,Integer> listCount = counter.countSymptoms(list);
-	listCount = counter.sortSymptoms(listCount);
-	counter.writeSymptoms(listCount);
-	
-
-
-	}
 }
