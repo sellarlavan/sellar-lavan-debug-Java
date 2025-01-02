@@ -8,8 +8,12 @@ import java.util.Map;
 
 public class WriteSymptomsDataToFile implements  ISymptomWriter{
 
-
-
+    /**
+     * Ecriture des symptomes et fréquence dans le fichier result.
+     *
+     * @param symptoms la map à écrire dans le fichier.
+     *
+     */
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
         if(symptoms != null){
@@ -23,9 +27,5 @@ public class WriteSymptomsDataToFile implements  ISymptomWriter{
                 e.printStackTrace();
             }
         }
-
-
-
-
     }
 }
