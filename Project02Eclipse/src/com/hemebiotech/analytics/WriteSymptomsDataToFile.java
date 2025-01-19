@@ -8,6 +8,10 @@ import java.util.Map;
 
 public class WriteSymptomsDataToFile implements  ISymptomWriter{
 
+    private String filepath;
+
+    public WriteSymptomsDataToFile (String filepath) {this.filepath = filepath;}
+
     /**
      * Ecriture des symptomes et fréquence dans le fichier result.
      *
@@ -16,16 +20,20 @@ public class WriteSymptomsDataToFile implements  ISymptomWriter{
      */
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms) {
-        if(symptoms != null){
-            try {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("result.out"));
-                for(Map.Entry<String, Integer> entry : symptoms.entrySet()){
-                    writer.write(entry.getKey() + " : " + entry.getValue() + "\n");
-                }
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+
+        if (symptoms == null || symptoms.isEmpty()){
+            System.err.println("La liste des symtomes est vide.");
+            throw new IllegalArgumentException("Rien ne sera afficher en sortie car la liste des symptomes est null.");
+        }
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
+            for(Map.Entry<String, Integer> entry : symptoms.entrySet()){
+                writer.write(entry.getKey() + " : " + entry.getValue() + "\n");
             }
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Une erreur s'est produite " + e);
         }
     }
 }
